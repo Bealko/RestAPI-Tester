@@ -1,12 +1,23 @@
 import json
 import requests
 
-response = requests.get('http://localhost:8000/web/coords.json')
+position = {"x":0,"y":0,"z":0}
 
-file = response.json()
+response = requests.get('http://localhost:8000/web/test.json')
 
-#create dictionary
-pairs = file.items()
+d_resp = response.json()
 
-for item,value in pairs:
-    print (item,value)
+#position should be empty
+print(position)
+
+#Printing & assigning json dictionary variables to LOCAL position variable
+print("pos x:", d_resp["x"]) 
+position["x"] = d_resp["x"]
+
+print("pos y:", d_resp["y"]) 
+position["y"] = d_resp["y"]
+
+print("pos z:", d_resp["z"]) 
+position["z"] = d_resp["z"]
+
+print(position)
