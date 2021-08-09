@@ -1,9 +1,13 @@
 import json
 import requests
 
+PATH = 'http://localhost:8000/web/test.json'
+
+
 position = {"x":0,"y":0,"z":0}
 
-response = requests.get('http://localhost:8000/web/test.json')
+print("Connecting to ",PATH)
+response = requests.get(PATH)
 
 d_resp = response.json()
 
@@ -21,3 +25,5 @@ print("pos z:", d_resp["z"])
 position["z"] = d_resp["z"]
 
 print(position)
+
+input(("Any key to exit..."))
